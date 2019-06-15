@@ -9,7 +9,7 @@
     "react-icons": "^3.7.0",
     "reinvented-color-wheel": "^0.2.4",
     "tinycolor2": "^1.4.1",
-    "wonky-scripts": "0.0.5"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
