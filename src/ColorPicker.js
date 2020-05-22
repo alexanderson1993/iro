@@ -12,7 +12,6 @@ import {
   MdTimelapse
 } from "react-icons/md";
 import { IconContext } from "react-icons";
-
 export default function ColorPicker() {
   const [color, setColor] = React.useState({
     hsv: [0, 0, 0],
@@ -33,7 +32,6 @@ export default function ColorPicker() {
   );
   const [colorWheelRef, changeColor] = useColorPicker(updateColor);
   function adjustColor(which, value) {
-    if (isNaN(parseInt(value, 10))) return;
     let newColor = tinycolor("red");
     switch (which) {
       case "Hue":
@@ -89,7 +87,7 @@ export default function ColorPicker() {
         });
         return;
     }
-    if (!newColor.isValid) return;
+    if (!newColor.isValid()) return;
     const hsv = newColor.toHsv();
     changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
   }
@@ -206,27 +204,21 @@ export default function ColorPicker() {
           onChange={adjustColor}
           label="RGBA"
           long
-          color={`rgba(${color.rgb[0]},${color.rgb[1]},${
-            color.rgb[2]
-          }, ${alpha})`}
+          color={`rgba(${color.rgb[0]},${color.rgb[1]},${color.rgb[2]}, ${alpha})`}
         />
 
         <ColorValue
           onChange={adjustColor}
           label="HSL"
           long
-          color={`hsl(${color.hsl[0]},${color.hsl[1]}%,${
-            color.hsl[2]
-          }%, ${alpha})`}
+          color={`hsl(${color.hsl[0]},${color.hsl[1]}%,${color.hsl[2]}%, ${alpha})`}
         />
 
         <ColorValue
           onChange={adjustColor}
           label="HSLA"
           long
-          color={`hsla(${color.hsl[0]},${color.hsl[1]}%,${
-            color.hsl[2]
-          }%, ${alpha})`}
+          color={`hsla(${color.hsl[0]},${color.hsl[1]}%,${color.hsl[2]}%, ${alpha})`}
         />
 
         <div className="value long">
