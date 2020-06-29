@@ -9,24 +9,25 @@ import {
   MdRotateLeft,
   MdRotateRight,
   MdTonality,
-  MdTimelapse
+  MdTimelapse,
 } from "react-icons/md";
 import { IconContext } from "react-icons";
+import { Input } from "@chakra-ui/core";
 export default function ColorPicker() {
   const [color, setColor] = React.useState({
-    hsv: [0, 0, 0],
-    rgb: [0, 0, 0],
-    hsl: [0, 0, 0],
-    hex: "#000000"
+    hsv: [0, 100, 100],
+    rgb: [255, 0, 0],
+    hsl: [0, 100, 50],
+    hex: "#ff0000",
   });
   const [alpha, setAlpha] = React.useState(1);
   const updateColor = React.useCallback(
-    color =>
+    (color) =>
       setColor({
         hsv: color.hsv,
         rgb: color.rgb,
         hsl: color.hsl,
-        hex: color.hex
+        hex: color.hex,
       }),
     []
   );
@@ -41,35 +42,35 @@ export default function ColorPicker() {
         newColor = tinycolor({
           h: color.hsv[0],
           s: value,
-          v: color.hsv[2]
+          v: color.hsv[2],
         });
         break;
       case "Val":
         newColor = tinycolor({
           h: color.hsv[0],
           s: color.hsv[1],
-          v: value
+          v: value,
         });
         break;
       case "Red":
         newColor = tinycolor({
           r: value,
           g: color.rgb[1],
-          b: color.rgb[2]
+          b: color.rgb[2],
         });
         break;
       case "Green":
         newColor = tinycolor({
           r: color.rgb[0],
           g: value,
-          b: color.rgb[2]
+          b: color.rgb[2],
         });
         break;
       case "Blue":
         newColor = tinycolor({
           r: color.rgb[0],
           g: color.rgb[1],
-          b: value
+          b: value,
         });
         break;
       case "Hex":
@@ -83,7 +84,7 @@ export default function ColorPicker() {
         newColor = tinycolor({
           r: color.rgb[0],
           g: color.rgb[1],
-          b: color.rgb[2]
+          b: color.rgb[2],
         });
         return;
     }
@@ -101,13 +102,13 @@ export default function ColorPicker() {
         <IconContext.Provider value={{ size: "1.25rem", className: "pointer" }}>
           <MdBrightnessHigh
             title="Lighten"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               const newColor = tinycolor({
                 h: color.hsv[0],
                 s: color.hsv[1],
-                v: color.hsv[2]
+                v: color.hsv[2],
               }).lighten(5);
               const hsv = newColor.toHsv();
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
@@ -115,13 +116,13 @@ export default function ColorPicker() {
           />
           <MdBrightnessLow
             title="Darken"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               const newColor = tinycolor({
                 h: color.hsv[0],
                 s: color.hsv[1],
-                v: color.hsv[2]
+                v: color.hsv[2],
               }).darken(5);
               const hsv = newColor.toHsv();
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
@@ -129,13 +130,13 @@ export default function ColorPicker() {
           />
           <MdRotateLeft
             title="Rotate Hue -"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               const newColor = tinycolor({
                 h: color.hsv[0],
                 s: color.hsv[1],
-                v: color.hsv[2]
+                v: color.hsv[2],
               }).spin(-10);
               const hsv = newColor.toHsv();
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
@@ -143,13 +144,13 @@ export default function ColorPicker() {
           />
           <MdRotateRight
             title="Rotate Hue +"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               const newColor = tinycolor({
                 h: color.hsv[0],
                 s: color.hsv[1],
-                v: color.hsv[2]
+                v: color.hsv[2],
               }).spin(10);
               const hsv = newColor.toHsv();
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
@@ -157,13 +158,13 @@ export default function ColorPicker() {
           />
           <MdTonality
             title="Desaturate"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               const newColor = tinycolor({
                 h: color.hsv[0],
                 s: color.hsv[1],
-                v: color.hsv[2]
+                v: color.hsv[2],
               }).desaturate(5);
               const hsv = newColor.toHsv();
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
@@ -171,13 +172,13 @@ export default function ColorPicker() {
           />
           <MdTimelapse
             title="Saturate"
-            onClick={e => {
+            onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
               const newColor = tinycolor({
                 h: color.hsv[0],
                 s: color.hsv[1],
-                v: color.hsv[2]
+                v: color.hsv[2],
               }).saturate(5);
               const hsv = newColor.toHsv();
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
@@ -223,10 +224,11 @@ export default function ColorPicker() {
 
         <div className="value long">
           <span>Alpha: </span>
-          <input
+          <Input
+            variant="flushed"
             type="search"
             value={alpha}
-            onChange={e => setAlpha(e.target.value)}
+            onChange={(e) => setAlpha(e.target.value)}
           />
         </div>
       </div>

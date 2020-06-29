@@ -2,7 +2,7 @@ body {
   height: 100vh;
   background-color: #323845;
   color: #ddd;
-  font: 12px/25px "Arial Narrow", Arial, Helvetica, sans-serif;
+  font: 16px/25px "Catamaran", "Arial Narrow", Arial, Helvetica, sans-serif;
 }
 .colorColumn {
   display: flex;
@@ -51,19 +51,19 @@ body {
 }
 .value input {
   flex: 1;
-  width: 10ch;
-  color: #333333;
-  font: 12px/25px "Arial Narrow", Arial, Helvetica, sans-serif;
-  border: 0px none #ffffff;
-  padding: 0 5px;
+  width: 6ch;
+  /* color: #333333; */
+  font: 16px/25px "Catamaran", Arial, Helvetica, sans-serif;
+  /* border: 0px none #ffffff; */
+  /* padding: 0 5px; */
 
   height: 20px;
-  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+  /* box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.1); */
+  /* border-radius: 5px; */
 }
 .value.long input {
   flex: 5;
-  width: 27ch;
+  width: 25ch;
 }
 .wrapper {
   height: 100vh;
