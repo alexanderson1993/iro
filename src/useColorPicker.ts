@@ -1,15 +1,16 @@
 import React from "react";
 import ReinventedColorWheel from "reinvented-color-wheel";
 
-export default function useColorPicker(onChange: any) {
-  const ref = React.useRef();
+export default function useColorPicker(
+  onChange: any
+): [React.RefObject<HTMLDivElement>, (hsv: any) => void] {
+  const ref = React.useRef<HTMLDivElement>(null);
   const colorWheel = React.useRef();
   React.useEffect(() => {
     if (ref.current) {
       // @ts-expect-error ts-migrate(2322) FIXME: Type 'ReinventedColorWheel' is not assignable to t... Remove this comment to see the full error message
       colorWheel.current = new ReinventedColorWheel({
         // appendTo is the only required property. specify the parent element of the color wheel.
-        // @ts-expect-error ts-migrate(2322) FIXME: Type 'undefined' is not assignable to type 'HTMLEl... Remove this comment to see the full error message
         appendTo: ref.current,
 
         // followings are optional properties and their default values.
@@ -24,15 +25,13 @@ export default function useColorPicker(onChange: any) {
         wheelReflectsSaturation: false,
 
         // handler
-        onChange
+        onChange,
       });
     }
     const refData = ref.current;
     return () => {
       if (refData) {
-        // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
         while (refData.firstChild) {
-          // @ts-expect-error ts-migrate(2532) FIXME: Object is possibly 'undefined'.
           refData.removeChild(refData.firstChild);
         }
         // @ts-expect-error ts-migrate(2322) FIXME: Type 'null' is not assignable to type 'undefined'.

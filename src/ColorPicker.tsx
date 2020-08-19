@@ -4,7 +4,7 @@ import useColorPicker from "./useColorPicker";
 import tinycolor from "tinycolor2";
 // @ts-expect-error ts-migrate(7016) FIXME: Try `npm install @types/react-copy-to-clipboard` i... Remove this comment to see the full error message
 import { CopyToClipboard } from "react-copy-to-clipboard";
-// @ts-expect-error ts-migrate(6142) FIXME: Module './ColorValue' was resolved to '/Users/raan... Remove this comment to see the full error message
+
 import ColorValue from "./ColorValue";
 import {
   MdBrightnessHigh,
@@ -93,24 +93,18 @@ export default function ColorPicker() {
     }
     if (!newColor.isValid()) return;
     const hsv = newColor.toHsv();
-    // @ts-expect-error ts-migrate(2349) FIXME: Type 'MutableRefObject<undefined>' has no call sig... Remove this comment to see the full error message
     changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
   }
   return (
-    // @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message
     <div className="colorWheel">
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
       <div className="colorWheelHolder" ref={colorWheelRef} />
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
       <div className="colorColumn">
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <CopyToClipboard text={color.hex}>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <div className="colorRep" style={{ backgroundColor: color.hex }} />
         </CopyToClipboard>
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <IconContext.Provider value={{ size: "1.25rem", className: "pointer" }}>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <MdBrightnessHigh
             title="Lighten"
             onClick={(e) => {
@@ -122,11 +116,11 @@ export default function ColorPicker() {
                 v: color.hsv[2],
               }).lighten(5);
               const hsv = newColor.toHsv();
-              // @ts-expect-error ts-migrate(2349) FIXME: Type 'MutableRefObject<undefined>' has no call sig... Remove this comment to see the full error message
+
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
             }}
           />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
           <MdBrightnessLow
             title="Darken"
             onClick={(e) => {
@@ -138,11 +132,11 @@ export default function ColorPicker() {
                 v: color.hsv[2],
               }).darken(5);
               const hsv = newColor.toHsv();
-              // @ts-expect-error ts-migrate(2349) FIXME: Type 'MutableRefObject<undefined>' has no call sig... Remove this comment to see the full error message
+
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
             }}
           />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
           <MdRotateLeft
             title="Rotate Hue -"
             onClick={(e) => {
@@ -154,11 +148,11 @@ export default function ColorPicker() {
                 v: color.hsv[2],
               }).spin(-10);
               const hsv = newColor.toHsv();
-              // @ts-expect-error ts-migrate(2349) FIXME: Type 'MutableRefObject<undefined>' has no call sig... Remove this comment to see the full error message
+
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
             }}
           />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
           <MdRotateRight
             title="Rotate Hue +"
             onClick={(e) => {
@@ -170,11 +164,11 @@ export default function ColorPicker() {
                 v: color.hsv[2],
               }).spin(10);
               const hsv = newColor.toHsv();
-              // @ts-expect-error ts-migrate(2349) FIXME: Type 'MutableRefObject<undefined>' has no call sig... Remove this comment to see the full error message
+
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
             }}
           />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
           <MdTonality
             title="Desaturate"
             onClick={(e) => {
@@ -186,11 +180,11 @@ export default function ColorPicker() {
                 v: color.hsv[2],
               }).desaturate(5);
               const hsv = newColor.toHsv();
-              // @ts-expect-error ts-migrate(2349) FIXME: Type 'MutableRefObject<undefined>' has no call sig... Remove this comment to see the full error message
+
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
             }}
           />
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
           <MdTimelapse
             title="Saturate"
             onClick={(e) => {
@@ -202,29 +196,28 @@ export default function ColorPicker() {
                 v: color.hsv[2],
               }).saturate(5);
               const hsv = newColor.toHsv();
-              // @ts-expect-error ts-migrate(2349) FIXME: Type 'MutableRefObject<undefined>' has no call sig... Remove this comment to see the full error message
+
               changeColor([hsv.h, hsv.s * 100, hsv.v * 100]);
             }}
           />
         </IconContext.Provider>
       </div>
-      {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
       <div className="values">
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <ColorValue onChange={adjustColor} label={"Hue"} color={color.hsv[0]} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <ColorValue onChange={adjustColor} label="Sat" color={color.hsv[1]} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <ColorValue onChange={adjustColor} label="Val" color={color.hsv[2]} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <ColorValue onChange={adjustColor} label="Red" color={color.rgb[0]} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <ColorValue onChange={adjustColor} label="Green" color={color.rgb[1]} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <ColorValue onChange={adjustColor} label="Blue" color={color.rgb[2]} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <ColorValue onChange={adjustColor} label="Hex" long color={color.hex} />
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
         <ColorValue
           onChange={adjustColor}
           label="RGB"
@@ -232,7 +225,6 @@ export default function ColorPicker() {
           color={`rgb(${color.rgb[0]},${color.rgb[1]},${color.rgb[2]})`}
         />
 
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <ColorValue
           onChange={adjustColor}
           label="RGBA"
@@ -240,7 +232,6 @@ export default function ColorPicker() {
           color={`rgba(${color.rgb[0]},${color.rgb[1]},${color.rgb[2]}, ${alpha})`}
         />
 
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <ColorValue
           onChange={adjustColor}
           label="HSL"
@@ -248,7 +239,6 @@ export default function ColorPicker() {
           color={`hsl(${color.hsl[0]},${color.hsl[1]}%,${color.hsl[2]}%, ${alpha})`}
         />
 
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <ColorValue
           onChange={adjustColor}
           label="HSLA"
@@ -256,11 +246,9 @@ export default function ColorPicker() {
           color={`hsla(${color.hsl[0]},${color.hsl[1]}%,${color.hsl[2]}%, ${alpha})`}
         />
 
-        {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
         <div className="value long">
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
           <span>Alpha: </span>
-          {/* @ts-expect-error ts-migrate(17004) FIXME: Cannot use JSX unless the '--jsx' flag is provided... Remove this comment to see the full error message */}
+
           <Input
             variant="flushed"
             type="search"
